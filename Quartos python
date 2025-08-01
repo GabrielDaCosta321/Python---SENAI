@@ -1,0 +1,36 @@
+clientes = [] #criação dos cadastros dos clientes
+
+for i in range(3):   #informação dos clientes como idade e nome
+    nome = input(f"Digite o nome do cliente {i+1}: ")      
+    idade = int(input(f"Digite a idade de {nome}: "))
+    clientes.append({"nome": nome, "idade": idade})
+
+#preço dos quartos
+preco_simples = 100
+preco_duplo = 150
+preco_luxo = 250
+
+for i in range(3):    #reserva dos quartos + calculos da estadia
+    cliente = clientes[i]
+    print(f"\nCliente {i+1}: {cliente['nome']} (Idade: {cliente['idade']})")
+    
+   #escolher os qurtos
+    quarto = input("Escolha o tipo de quarto (Simples, Duplo, Luxo): ").strip().lower()
+    
+   #ve o tipo do quarto e o preço 
+    if quarto == "simples":
+        preco = preco_simples
+    elif quarto == "duplo":
+        preco = preco_duplo
+    elif quarto == "luxo":
+        preco = preco_luxo
+    else:
+        
+        preco = preco_simples
+    
+    #quantidade de dias que o cliente ira ficar
+    dias = int(input(f"Quantos dias {cliente['nome']} ficará no hotel? "))
+    
+    #calculo do preço e do dia 
+    valor_total = preco * dias
+    print(f"O valor total da estadia de {cliente['nome']} será: R$ {valor_total:.2f}")
